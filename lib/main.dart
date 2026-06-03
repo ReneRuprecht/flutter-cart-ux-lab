@@ -1,3 +1,4 @@
+import 'package:cart_ux_lab/cart/enhanced/CartScreenEnhanced.dart';
 import 'package:cart_ux_lab/cart/original/CartScreenOriginal.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,7 @@ class MyApp extends StatefulWidget {
 
 class _MyApp extends State<MyApp> {
   int currentIndex = 0;
-  final pages = [MyHomePage(), CartScreenOriginal()];
+  final pages = [MyHomePage(), CartScreenOriginal(), CartScreenEnhanced()];
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +35,10 @@ class _MyApp extends State<MyApp> {
             NavigationDestination(
               icon: Icon(Icons.shopping_cart),
               label: "Original",
+            ),
+            NavigationDestination(
+              icon: Icon(Icons.shopping_cart),
+              label: "Enhanced",
             ),
           ],
         ),

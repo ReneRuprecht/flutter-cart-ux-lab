@@ -7,10 +7,7 @@ class CheckoutBarEnhanced extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.black,
-        boxShadow: [BoxShadow(blurRadius: 10, color: Colors.black12)],
-      ),
+      decoration: BoxDecoration(color: Colors.transparent),
       child: SizedBox(
         height: 50,
         width: double.infinity,

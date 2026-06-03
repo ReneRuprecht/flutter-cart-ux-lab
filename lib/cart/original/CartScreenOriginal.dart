@@ -25,7 +25,12 @@ class CartScreenOriginal extends StatelessWidget {
               children: [
                 ProductBox(title: "Test Produkt", amount: 20.00),
                 SectionBox(title: "Infos"),
-                Recommendations(),
+                Recommendations(
+                  brand: "test brand",
+                  title: "test title",
+                  amount: 10.00,
+                  valueInfo: "info",
+                ),
               ],
             ),
             CheckoutBar(),

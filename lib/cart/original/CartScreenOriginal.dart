@@ -1,3 +1,4 @@
+import 'package:cart_ux_lab/cart/shared/product/ProductBox.dart';
 import 'package:flutter/material.dart';
 
 import '../shared/Recommendations.dart';
@@ -13,7 +14,7 @@ class CartScreenOriginal extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           "Warenkorb",
-          style: TextStyle(fontSize: 30, color: Colors.white),
+          style: const TextStyle(fontSize: 30, color: Colors.white),
         ),
         centerTitle: true,
       ),
@@ -22,7 +23,7 @@ class CartScreenOriginal extends StatelessWidget {
           children: [
             ListView(
               children: [
-                SectionBox(title: "Warenkorb"),
+                ProductBox(title: "Test Produkt", amount: 20.00),
                 SectionBox(title: "Infos"),
                 Recommendations(),
               ],

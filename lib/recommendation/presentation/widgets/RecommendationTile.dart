@@ -1,5 +1,5 @@
 import 'package:cart_ux_lab/recommendation/domain/models/RecommendationItem.dart';
-import 'package:cart_ux_lab/cart/shared/product/ProductImage.dart';
+import 'package:cart_ux_lab/core/shared/widgets/product/ProductImage.dart';
 import 'package:cart_ux_lab/recommendation/presentation/widgets/ProductCostSection.dart';
 import 'package:cart_ux_lab/recommendation/presentation/widgets/ProductSection.dart';
 import 'package:flutter/material.dart';

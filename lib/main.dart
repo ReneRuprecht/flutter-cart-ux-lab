@@ -1,9 +1,43 @@
-import 'package:cart_ux_lab/cart/enhanced/CartScreenEnhanced.dart';
-import 'package:cart_ux_lab/cart/original/CartScreenOriginal.dart';
+import 'package:cart_ux_lab/cart/application/CartViewModel.dart';
+import 'package:cart_ux_lab/cart/data/repositories/CartRepositoryImpl.dart';
+import 'package:cart_ux_lab/cart/domain/usecases/AddRecommendationItemToCartUseCase.dart';
+import 'package:cart_ux_lab/cart/domain/usecases/CartChangesUseCase.dart';
+import 'package:cart_ux_lab/cart/domain/usecases/DeleteItemByIdUseCase.dart';
+import 'package:cart_ux_lab/cart/domain/usecases/LoadCartItemsUseCase.dart';
+import 'package:cart_ux_lab/cart/presentation/enhanced/CartScreenEnhanced.dart';
+import 'package:cart_ux_lab/cart/presentation/original/CartScreenOriginal.dart';
+import 'package:cart_ux_lab/recommendation/application/RecommendationViewModel.dart';
+import 'package:cart_ux_lab/recommendation/data/repositories/RecommendationRepositoryImpl.dart';
+import 'package:cart_ux_lab/recommendation/domain/usecases/LoadRecommendationsUseCase.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  final cartRepository = CartRepositoryImpl();
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (ctx) => CartViewModel(
+            loadItemsUseCase: LoadItemsUseCase(repository: cartRepository),
+            cartChangesUseCase: CartChangesUseCase(cartRepository),
+            deleteItemByIdUseCase: DeleteItemByIdUseCase(cartRepository),
+          )..load(),
+        ),
+
+        ChangeNotifierProvider(
+          create: (ctx) => RecommendationViewModel(
+            addRecommendationItemToCartUseCase:
+                AddRecommendationItemToCartUseCase(repository: cartRepository),
+            loadRecommendationsUseCase: LoadRecommendationsUseCase(
+              repository: RecommendationRespsitoryImpl(),
+            ),
+          )..load(),
+        ),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {

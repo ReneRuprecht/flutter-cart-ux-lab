@@ -19,7 +19,6 @@ class ProductCostSection extends StatelessWidget {
           softWrap: true,
           style: TextStyle(color: Colors.white, fontSize: 20),
         ),
-
         Text(valueInfo, style: TextStyle(color: Colors.grey, fontSize: 16)),
       ],
     );

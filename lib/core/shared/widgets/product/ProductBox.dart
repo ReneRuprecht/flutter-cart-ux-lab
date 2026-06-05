@@ -19,6 +19,7 @@ class ProductBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: Colors.black,
       height: 150,
       padding: const EdgeInsets.all(16),
       child: Row(

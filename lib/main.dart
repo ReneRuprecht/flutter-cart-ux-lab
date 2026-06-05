@@ -58,8 +58,11 @@ class _MyApp extends State<MyApp> {
     return MaterialApp(
       theme: ThemeData.dark(),
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: IndexedStack(index: currentIndex, children: pages),
         bottomNavigationBar: NavigationBar(
+          surfaceTintColor: Colors.black,
+          backgroundColor: Colors.black,
           selectedIndex: currentIndex,
           onDestinationSelected: (index) {
             setState(() {
@@ -89,6 +92,7 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       body: SafeArea(
         child: Center(
           child: Text(

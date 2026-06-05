@@ -18,7 +18,10 @@ class CartScreenOriginal extends StatelessWidget {
     final recommendationVM = context.watch<RecommendationViewModel>();
 
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
+        backgroundColor: Colors.black,
+        surfaceTintColor: Colors.black,
         title: const Text(
           "Warenkorb",
           style: TextStyle(fontSize: 30, color: Colors.white),

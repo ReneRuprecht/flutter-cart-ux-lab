@@ -1,5 +1,4 @@
 import 'package:cart_ux_lab/cart/application/CartViewModel.dart';
-import 'package:cart_ux_lab/cart/presentation/VoucherSection.dart';
 import 'package:cart_ux_lab/core/shared/widgets/product/ProductBox.dart';
 import 'package:cart_ux_lab/recommendation/application/RecommendationViewModel.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +6,7 @@ import 'package:provider/provider.dart';
 
 import '../../../recommendation/presentation/Recommendations.dart';
 import '../../../core/shared/widgets/SectionBox.dart';
+import '../../../voucher/presentation/VoucherSectionEnhanced.dart';
 import 'CheckoutBar.dart';
 
 class CartScreenEnhanced extends StatelessWidget {
@@ -27,34 +27,40 @@ class CartScreenEnhanced extends StatelessWidget {
       ),
 
       body: SafeArea(
-        child: Column(
-          children: [
-            Expanded(
-              child: ListView(
-                children: [
-                  ...cartVM.items.map(
-                    (item) => ProductBox(
-                      id: item.id,
-                      title: item.title,
-                      amount: item.amount,
-                      onDelete: cartVM.remove,
+        child: Padding(
+          padding: const EdgeInsetsGeometry.symmetric(horizontal: 12),
+          child: Column(
+            children: [
+              Expanded(
+                child: ListView(
+                  children: [
+                    ...cartVM.items.map(
+                      (item) => ProductBox(
+                        id: item.id,
+                        title: item.title,
+                        amount: item.amount,
+                        onDelete: cartVM.remove,
+                      ),
                     ),
-                  ),
 
-                  const VoucherSection(),
+                    VoucherSectionEnhanced(),
 
-                  const SectionBox(title: "Infos"),
+                    SizedBox(height: 8),
+                    Divider(),
 
-                  Recommendations(
-                    items: recommendationVM.recommendations,
-                    onAddToCart: recommendationVM.add,
-                  ),
-                ],
+                    const SectionBox(title: "Infos"),
+
+                    Recommendations(
+                      items: recommendationVM.recommendations,
+                      onAddToCart: recommendationVM.add,
+                    ),
+                  ],
+                ),
               ),
-            ),
 
-            const CheckoutBarEnhanced(),
-          ],
+              const CheckoutBarEnhanced(),
+            ],
+          ),
         ),
       ),
     );

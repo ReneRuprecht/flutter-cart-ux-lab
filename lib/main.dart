@@ -9,6 +9,7 @@ import 'package:cart_ux_lab/cart/presentation/original/CartScreenOriginal.dart';
 import 'package:cart_ux_lab/recommendation/application/RecommendationViewModel.dart';
 import 'package:cart_ux_lab/recommendation/data/repositories/RecommendationRepositoryImpl.dart';
 import 'package:cart_ux_lab/recommendation/domain/usecases/LoadRecommendationsUseCase.dart';
+import 'package:cart_ux_lab/voucher/application/VoucherViewModel.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -18,6 +19,7 @@ void main() {
   runApp(
     MultiProvider(
       providers: [
+        ChangeNotifierProvider(create: (ctx) => VoucherViewModel()),
         ChangeNotifierProvider(
           create: (ctx) => CartViewModel(
             loadItemsUseCase: LoadItemsUseCase(repository: cartRepository),

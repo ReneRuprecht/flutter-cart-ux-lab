@@ -1,5 +1,5 @@
 import 'package:cart_ux_lab/cart/application/CartViewModel.dart';
-import 'package:cart_ux_lab/cart/presentation/VoucherSection.dart';
+import 'package:cart_ux_lab/voucher/presentation/VoucherSection.dart';
 import 'package:cart_ux_lab/core/shared/widgets/product/ProductBox.dart';
 import 'package:cart_ux_lab/recommendation/application/RecommendationViewModel.dart';
 import 'package:flutter/material.dart';
@@ -26,32 +26,37 @@ class CartScreenOriginal extends StatelessWidget {
         centerTitle: true,
       ),
       body: SafeArea(
-        child: Stack(
-          children: [
-            ListView(
-              children: [
-                ...cartVM.items.map(
-                  (item) => ProductBox(
-                    id: item.id,
-                    title: item.title,
-                    amount: item.amount,
-                    onDelete: cartVM.remove,
+        child: Padding(
+          padding: const EdgeInsetsGeometry.symmetric(horizontal: 12),
+          child: Stack(
+            children: [
+              ListView(
+                children: [
+                  ...cartVM.items.map(
+                    (item) => ProductBox(
+                      id: item.id,
+                      title: item.title,
+                      amount: item.amount,
+                      onDelete: cartVM.remove,
+                    ),
                   ),
-                ),
 
-                const VoucherSection(),
+                  const VoucherSection(),
+                  SizedBox(height: 8),
+                  Divider(),
 
-                const SectionBox(title: "Infos"),
+                  const SectionBox(title: "Infos"),
 
-                Recommendations(
-                  items: recommendationVM.recommendations,
-                  onAddToCart: recommendationVM.add,
-                ),
-              ],
-            ),
+                  Recommendations(
+                    items: recommendationVM.recommendations,
+                    onAddToCart: recommendationVM.add,
+                  ),
+                ],
+              ),
 
-            CheckoutBar(),
-          ],
+              CheckoutBar(),
+            ],
+          ),
         ),
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:cart_ux_lab/cart/application/CartViewModel.dart';
+import 'package:cart_ux_lab/cart/presentation/VoucherSection.dart';
 import 'package:cart_ux_lab/core/shared/widgets/product/ProductBox.dart';
 import 'package:cart_ux_lab/recommendation/application/RecommendationViewModel.dart';
 import 'package:flutter/material.dart';
@@ -39,6 +40,8 @@ class CartScreenEnhanced extends StatelessWidget {
                       onDelete: cartVM.remove,
                     ),
                   ),
+
+                  const VoucherSection(),
 
                   const SectionBox(title: "Infos"),
 

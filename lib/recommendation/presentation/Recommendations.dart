@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 class Recommendations extends StatelessWidget {
   final List<RecommendationItem> items;
   final void Function(RecommendationItem) onAddToCart;
+
   const Recommendations({
     super.key,
     required this.items,
@@ -56,7 +57,7 @@ class Recommendations extends StatelessWidget {
 
                     child: RecommendationTile(
                       item: item,
-                      onAdd: () => onAddToCart(item),
+                      onAddToCart: () => onAddToCart(item),
                     ),
                   );
                 }).toList(),

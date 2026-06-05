@@ -24,11 +24,6 @@ class CartViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void add(CartItem item) {
-    items.add(item);
-    notifyListeners();
-  }
-
   void remove(int id) {
     deleteItemByIdUseCase(id);
   }

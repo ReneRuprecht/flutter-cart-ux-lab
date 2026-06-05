@@ -6,12 +6,12 @@ import 'package:flutter/material.dart';
 
 class RecommendationTile extends StatelessWidget {
   final RecommendationItem item;
-  final VoidCallback onAdd;
+  final VoidCallback onAddToCart;
 
   const RecommendationTile({
     super.key,
     required this.item,
-    required this.onAdd,
+    required this.onAddToCart,
   });
 
   @override
@@ -43,7 +43,7 @@ class RecommendationTile extends StatelessWidget {
                 child: SizedBox(
                   height: 60,
                   child: ElevatedButton(
-                    onPressed: onAdd,
+                    onPressed: onAddToCart,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.grey.shade900,
                       side: const BorderSide(color: Colors.grey),

@@ -44,7 +44,7 @@ class CartScreenEnhanced extends StatelessWidget {
 
                   Recommendations(
                     items: recommendationVM.recommendations,
-                    onAddToCart: recommendationVM.onAddtoCart,
+                    onAddToCart: recommendationVM.add,
                   ),
                 ],
               ),

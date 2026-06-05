@@ -1,6 +1,6 @@
 import 'package:cart_ux_lab/cart/application/CartViewModel.dart';
 import 'package:cart_ux_lab/cart/data/repositories/CartRepositoryImpl.dart';
-import 'package:cart_ux_lab/cart/domain/usecases/AddRecommendationItemToCartUseCase.dart';
+import 'package:cart_ux_lab/cart/domain/usecases/AddToCartUseCase.dart';
 import 'package:cart_ux_lab/cart/domain/usecases/CartChangesUseCase.dart';
 import 'package:cart_ux_lab/cart/domain/usecases/DeleteItemByIdUseCase.dart';
 import 'package:cart_ux_lab/cart/domain/usecases/LoadCartItemsUseCase.dart';
@@ -14,6 +14,7 @@ import 'package:provider/provider.dart';
 
 void main() {
   final cartRepository = CartRepositoryImpl();
+  final addToCartUseCase = AddToCartUseCase(repository: cartRepository);
   runApp(
     MultiProvider(
       providers: [
@@ -27,11 +28,10 @@ void main() {
 
         ChangeNotifierProvider(
           create: (ctx) => RecommendationViewModel(
-            addRecommendationItemToCartUseCase:
-                AddRecommendationItemToCartUseCase(repository: cartRepository),
             loadRecommendationsUseCase: LoadRecommendationsUseCase(
               repository: RecommendationRespsitoryImpl(),
             ),
+            addToCart: addToCartUseCase,
           )..load(),
         ),
       ],

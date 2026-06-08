@@ -19,6 +19,11 @@ Nachbildung des beobachteten Verhaltens:
 * Scrollbarer Warenkorbinhalt
 * Empfehlungsliste scrollt unter dem Checkout Bereich weiter
 * Overlaybasierte Platzierung des primären Call to Action
+* Gutschein Sektion – alternative Interpretationen der Interaktion:
+    * Ist der Gutscheincode auf eine bestimmte Länge begrenzt?
+    * Die Bedeutung des Pfeils ist aus UX-Sicht nicht eindeutig (Submit vs. Navigation vs. Expand).
+
+![Original Screen](./screenshots/original.png)
 
 ### Enhanced
 
@@ -27,6 +32,10 @@ Alternative Umsetzung mit Fokus auf Übersichtlichkeit und Inhaltsdarstellung:
 * Klare Trennung zwischen Inhalt und Checkout Bereich
 * Keine Überlagerung von Inhalten durch den Checkout Button
 * Strukturierterer Scroll- und Interaktionsbereich
+* Fortmat des Gutscheincodes als Vorgabe
+* Klar ersichtlicht wie der Gutscheincode geprüft werden kann
+
+![Enhanced Screen](./screenshots/enhanced.png)
 
 ## Technische Schwerpunkte
 
@@ -47,3 +56,4 @@ Ziel dieses Projekts ist es, ein bestehendes Verhalten zu analysieren, technisch
 * Animationen
 * Anbindung an Mock Daten / Backend
 * Löschen / Favorisieren
+

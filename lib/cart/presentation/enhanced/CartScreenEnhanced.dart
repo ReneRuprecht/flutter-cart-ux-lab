@@ -1,4 +1,5 @@
 import 'package:cart_ux_lab/cart/application/CartViewModel.dart';
+import 'package:cart_ux_lab/cart/presentation/widgets/CartSumary.dart';
 import 'package:cart_ux_lab/core/shared/widgets/product/ProductBox.dart';
 import 'package:cart_ux_lab/recommendation/application/RecommendationViewModel.dart';
 import 'package:flutter/material.dart';
@@ -51,7 +52,7 @@ class CartScreenEnhanced extends StatelessWidget {
                     SizedBox(height: 8),
                     Divider(),
 
-                    const SectionBox(title: "Infos"),
+                    const CartSymmary(),
 
                     Recommendations(
                       items: recommendationVM.recommendations,
